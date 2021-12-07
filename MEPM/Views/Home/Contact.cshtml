@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+}
+<header class="secondaryhead">
+    <h1 class="display-4 text-dark">Contact us</h1>
+</header>
+<h4 class=" pt-3 text-center">Site under construction</h4>
+<form action="Text" method="POST">
+    <label for="toPhone">To phone number: </label>
+    <input type="text" id="toPhone" placeholder="+1(123)4567890" name="toPhone" />
+    <label for="message">Message: </label>
+    <input type="text" id="message" placeholder="..." name="message" />
+    <input type="submit" value="Submit Form" />
+</form>
+
+<form action="Email" method="POST">
+    <label for="toEmailAddress">To email: </label>
+    <input type="text" id="toEmailAddress" placeholder="" name="toEmailAddress" />
+    <label for="fromEmailAddress">From email: </label>
+    <input type="text" id="fromEmailAddress" placeholder="" name="fromEmailAddress" />
+    <label for="subject">subject: </label>
+    <input type="text" id="subject" placeholder="..." name="subject" />
+    <label for="plainText">Plain Text: </label>
+    <input type="text" id="plainText" placeholder="..." name="plainText" />
+    <label for="htmlText">Html Text: </label>
+    <input type="text" id="htmlText" placeholder="..." name="htmlText" />
+    <label for="name">Name: </label>
+    <input type="text" id="name" placeholder="..." name="name" />
+    <input type="submit" value="Submit Form" />
+</form>
