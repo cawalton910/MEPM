@@ -27,13 +27,13 @@
 }
 
 .btn-mepm {
-    color: #ededed;
+    color: #ededed !important;
     background-color: #0a3369;
     border-color: #000000;
 }
 
 .btn-mepm:hover {
-    color: #a1a1a1;
+    color: #a1a1a1 !important;
 }
 header.masthead {
     text-align: center;

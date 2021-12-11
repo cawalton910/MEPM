@@ -2,8 +2,6 @@
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MEPM.Services
@@ -13,8 +11,9 @@ namespace MEPM.Services
         private string apiKey;
 
         public EmailAddress FromEmailAddress { get; set; }
+        public string SendersEmailAddress { get; set; } = "Contact information was not provided :(";
         public string Subject { get; set; }
-        public EmailAddress ToEmailAddress { get; set; }
+        public EmailAddress ToEmailAddress { get; set; } = new EmailAddress("cawalton910@gmail.com");
         public string PlainTextContext { get; set; }
         public string HtmlContent { get; set; }
         public SendGridClient SendGridClient { get; init; }
@@ -29,13 +28,21 @@ namespace MEPM.Services
             SendGridClient = new SendGridClient(apiKey);
         }
 
-        public async Task Send(string toEmailAddress, string subject, string plainText, string htmlContext, string name = null)
+        public async Task Send(string toEmailAddress, string sendersEmailAddress, string subject, string plainText, string htmlContext, string name = null)
         {
-            ToEmailAddress = new EmailAddress(toEmailAddress, name);
-            PlainTextContext = plainText;
-            HtmlContent = htmlContext;
+            //ToEmailAddress = new EmailAddress(toEmailAddress, name);
+            if (sendersEmailAddress != null)
+            {
+                SendersEmailAddress = sendersEmailAddress;
+            }
+            _ = name ?? throw new ArgumentNullException(nameof(name));
+            _ = subject ?? throw new ArgumentNullException(nameof(subject));
+            _ = htmlContext ?? throw new ArgumentNullException(nameof(htmlContext));
+
+            PlainTextContext = plainText + " Message from: " + SendersEmailAddress;
+            HtmlContent = htmlContext + " Message from: " + SendersEmailAddress;
             Subject = subject;
-            
+
             var msg = MailHelper.CreateSingleEmail(FromEmailAddress, ToEmailAddress, Subject, PlainTextContext, HtmlContent);
 
             Response = await SendGridClient.SendEmailAsync(msg);

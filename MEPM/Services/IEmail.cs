@@ -1,8 +1,5 @@
 ﻿using SendGrid;
 using SendGrid.Helpers.Mail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MEPM.Services
@@ -16,6 +13,6 @@ namespace MEPM.Services
         public string HtmlContent { get; set; }
         public SendGridClient SendGridClient { get; init; }
         public Response Response { get; set; }
-        public Task Send(string toEmailAddress, string subject, string plainText, string htmlContext, string name = null);
+        public Task Send(string toEmailAddress, string sendersEmailAddress, string subject, string plainText, string htmlContext, string name = null);
     }
 }

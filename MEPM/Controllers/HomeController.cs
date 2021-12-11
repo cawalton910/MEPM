@@ -1,9 +1,7 @@
-﻿using MEPM.Services;
+﻿using MEPM.Models;
+using MEPM.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace MEPM.Controllers
 {
@@ -38,9 +36,10 @@ namespace MEPM.Controllers
 
 
         [HttpPost]
-        public IActionResult Email(string toEmailAddress, string subject, string plainText, string htmlText, string name)
+        public IActionResult Email(string toEmailAddress, string sendersEmailAddress, string subject, string plainText, string htmlText, string name)
         {
-            _email.Send(toEmailAddress, subject, plainText, htmlText, name).Wait();
+
+            _email.Send(toEmailAddress, sendersEmailAddress, subject, plainText, htmlText, name).Wait();
 
             return Content("Email sent");
         }
@@ -55,9 +54,10 @@ namespace MEPM.Controllers
         {
             return View();
         }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View();
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
     }

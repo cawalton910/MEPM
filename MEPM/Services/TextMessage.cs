@@ -1,8 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 
@@ -13,8 +9,8 @@ namespace MEPM.Services
     {
         private string accountSid;
         private string authToken;
-        public string  ToPhoneNumber { get; set; }
-        public string  FromPhoneNumber { get; set; }
+        public string ToPhoneNumber { get; set; }
+        public string FromPhoneNumber { get; set; }
         public string Message { get; set; }
 
         public TextMessage(IConfiguration configuration)

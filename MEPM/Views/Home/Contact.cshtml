@@ -5,27 +5,102 @@
 <header class="secondaryhead">
     <h1 class="display-4 text-dark">Contact us</h1>
 </header>
-<h4 class=" pt-3 text-center">Site under construction</h4>
-<form action="Text" method="POST">
-    <label for="toPhone">To phone number: </label>
-    <input type="text" id="toPhone" placeholder="+1(123)4567890" name="toPhone" />
-    <label for="message">Message: </label>
-    <input type="text" id="message" placeholder="..." name="message" />
-    <input type="submit" value="Submit Form" />
-</form>
+<div class="container">
+    <!--Section: Contact v.2-->
+    <section class="mb-4">
 
-<form action="Email" method="POST">
-    <label for="toEmailAddress">To email: </label>
-    <input type="text" id="toEmailAddress" placeholder="" name="toEmailAddress" />
-    <label for="fromEmailAddress">From email: </label>
-    <input type="text" id="fromEmailAddress" placeholder="" name="fromEmailAddress" />
-    <label for="subject">subject: </label>
-    <input type="text" id="subject" placeholder="..." name="subject" />
-    <label for="plainText">Plain Text: </label>
-    <input type="text" id="plainText" placeholder="..." name="plainText" />
-    <label for="htmlText">Html Text: </label>
-    <input type="text" id="htmlText" placeholder="..." name="htmlText" />
-    <label for="name">Name: </label>
-    <input type="text" id="name" placeholder="..." name="name" />
-    <input type="submit" value="Submit Form" />
-</form>
+
+        <!--Section description-->
+        <p class="text-center w-responsive mx-auto mb-4 pt-3">
+            Have any questions? Please do not hesitate to contact us directly. We will return your message as soon as possible.
+        </p>
+
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-9 mb-md-0 mb-5">
+                <form id="contact-form" name="contact-form" action="Email" method="POST">
+
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="name" name="name" class="form-control">
+                                <label for="name" class="">Your name</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="sendersEmailAddress" name="sendersEmailAddress" class="form-control">
+                                <label for="sendersEmailAddress" class="">Your email</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+                    <!--Grid row-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                <input type="text" id="subject" name="subject" class="form-control">
+                                <label for="subject" class="">Subject</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-12">
+
+                            <div class="md-form">
+                                <textarea type="text" id="htmlText" name="htmlText" rows="2" class="form-control md-textarea"></textarea>
+                                <label for="htmlText">Your message</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Grid row-->
+
+                    <a class="btn btn-mepm" onclick="document.getElementById('contact-form').submit();">Send</a>
+                </form>
+
+                    
+                   
+                    
+                    <div class="status"></div>
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-3 text-center">
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
+                        <p><a href="https://www.google.com/maps/place/Mountain+Empire+Piping+%26+Mechanical/@@36.5600103,-82.208488,17z/data=!3m1!4b1!4m5!3m4!1s0x885077b15363dc41:0x2bc43fbe905cc5ea!8m2!3d36.560006!4d-82.2062993/" target="_blank"">1116 Bluff City Hwy, Bristol, TN</a></p>
+                        
+                    </li>
+
+                    <li>
+                        <i class="fas fa-phone mt-4 fa-2x"></i>
+                        <p>(423)-217-0592</p>
+                    </li>
+
+                    <li>
+                        <i class="fas fa-envelope mt-4 fa-2x"></i>
+                        <p>contact@mepmllc.com</p>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+        </div>
+
+    </section>
+</div>
+

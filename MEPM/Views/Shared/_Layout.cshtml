@@ -11,35 +11,36 @@
 
 </head>
 <body>
+   
     <div id="myDIV">
-    <nav class="navbar navbar-expand-lg fixed-top shadow rounded" id="mainNav">
+        <nav class="navbar navbar-expand-lg fixed-top shadow rounded" id="mainNav">
 
-        <div class="container" id="myDIV">
-            <a class="navbar-brand " href="/Home/Index"><img src="/images/logo.png" width="166" height="70" alt=""></a>
-            <ul class="mr-auto"></ul>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="navbar-collapse collapse justify-content-between">
-                <ul class="nav navbar-nav flex-grow-1">
-                    
-                    <li class="nav-item @Html.ActiveClass("Home", "Index")">
-                        <a class="nav-link " href="/Home/Index">Home</a>
-                    </li>
-                    <li class="nav-item @Html.ActiveClass("Home", "Services")">
-                        <a class="nav-link" href="/Home/Services">Services</a>
-                    </li>
-                    <li class="nav-item @Html.ActiveClass("Home", "Portfolio")">
-                        <a class="nav-link" href="/Home/Portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item @Html.ActiveClass("Home", "Contact")">
-                        <a class="nav-link" href="/Home/Contact">Contact</a>
-                    </li>
-                </ul>
+            <div class="container" id="myDIV">
+                <a class="navbar-brand " href="/Home/Index"><img src="/images/logo.png" width="166" height="70" alt=""></a>
+                <ul class="mr-auto"></ul>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+                <div class="navbar-collapse collapse justify-content-between">
+                    <ul class="nav navbar-nav flex-grow-1">
+
+                        <li class="nav-item @Html.ActiveClass("Home", "Index,Privacy,Error")">
+                            <a class="nav-link " href="/Home/Index">Home</a>
+                        </li>
+                        <li class="nav-item @Html.ActiveClass("Home", "Services")">
+                            <a class="nav-link" href="/Home/Services">Services</a>
+                        </li>
+                        <li class="nav-item @Html.ActiveClass("Home", "Portfolio")">
+                            <a class="nav-link" href="/Home/Portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item @Html.ActiveClass("Home", "Contact")">
+                            <a class="nav-link" href="/Home/Contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     </div>
 
 
@@ -50,6 +51,7 @@
 
     <footer class="border-top footer text-muted shadow">
         <div class="container">
+            
             &copy; 2021 - MEPM - <a class="" href="/Home/Privacy">Privacy</a>
         </div>
     </footer>
