@@ -8,13 +8,11 @@ namespace MEPM.Controllers
     public class HomeController : Controller
     {
         private readonly IEmail _email;
-        private readonly ITextMessage _text;
 
 
-        public HomeController(IEmail email, ITextMessage text)
+        public HomeController(IEmail email)
         {
             _email = email;
-            _text = text;
         }
 
         public IActionResult Index()
@@ -33,32 +31,38 @@ namespace MEPM.Controllers
         {
             return View();
         }
-
-
-        [HttpPost]
-        public IActionResult Email(string toEmailAddress, string sendersEmailAddress, string subject, string plainText, string htmlText, string name)
-        {
-
-            _email.Send(toEmailAddress, sendersEmailAddress, subject, plainText, htmlText, name).Wait();
-
-            return Content("Email sent");
-        }
-
-        [HttpPost]
-        public IActionResult Text(string toPhone, string message)
-        {
-            string rst = _text.Send(toPhone, message);
-            return Content("Text message sent");
-        }
         public IActionResult Privacy()
         {
             return View();
         }
+
+        //string toEmailAddress, string sendersEmailAddress, string subject, string plainText, string htmlText, string name
+        [HttpPost]
+        public IActionResult Email(EmailModel e)
+        {
+            if (ModelState.IsValid)
+            {
+                _email.Send(e.SendersEmailAddress, e.Subject, e.HtmlContent, e.name).Wait();
+                return NoContent();
+                
+            }
+            else
+            {
+                return View("Contact");
+            }
+
+            
+
+        }
+
+        
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
 
     }
 }

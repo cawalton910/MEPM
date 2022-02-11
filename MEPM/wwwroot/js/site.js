@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿
+$(function () {
     var $el,
         leftPos,
         newWidth,
@@ -32,3 +33,27 @@
     );
 });
 // Credit: https://css-tricks.com/jquery-magicline-navigation
+
+function initMap() {
+    const mepm = { lat: 36.560007113641745, lng: - 82.20629139082862 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 12,
+            center: mepm,
+        });
+        const marker = new google.maps.Marker({
+            position: mepm,
+            map: map,
+        });
+    }
+
+$(document).ready(function () {
+    $("#btnShowModal").click(function () {
+        $("#SuccessModal").modal('show');
+    });
+});
+$(document).click(function (e) {
+    if ($(e.target).is('#SuccessModal')) {
+        $('#SuccessModal').modal('hide');
+    }
+
+});

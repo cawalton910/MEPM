@@ -1,4 +1,5 @@
 ﻿
+@model MEPM.Models.EmailModel
 @{
     ViewData["Title"] = "Contact";
 }
@@ -11,96 +12,155 @@
 
 
         <!--Section description-->
-        <p class="text-center w-responsive mx-auto mb-4 pt-3">
+        <p class="text-center w-responsive mx-auto mb-5 pt-3">
             Have any questions? Please do not hesitate to contact us directly. We will return your message as soon as possible.
         </p>
+
+
 
         <div class="row">
 
             <!--Grid column-->
             <div class="col-md-9 mb-md-0 mb-5">
-                <form id="contact-form" name="contact-form" action="Email" method="POST">
+                @using (Html.BeginForm("Email", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
 
                     <!--Grid row-->
-                    <div class="row">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <!--Grid column-->
+                            <div class="col-md-11">
+                                <div class="md-form mb-0">
+                                    <label for="name" class="">Your name</label>
+                                    @Html.EditorFor(m => m.name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(m => m.name, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        </div>
 
                         <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="row">
+                            <div class="col-md-11">
+                                <div class="md-form mb-0">
+                                    <label for="sendersEmailAddress" class="">Your email</label>
+                                    @Html.EditorFor(m => m.SendersEmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(m => m.SendersEmailAddress, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="row">
+                            <div class="col-md-11">
+                                <div class="md-form mb-0">
+                                    <label for="name" class="">Subject</label>
+                                    @Html.EditorFor(m => m.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Grid column-->
+                        <!--Grid column-->
+                        <div class="col pt-3 pl-0">
+                            <input id="btnShowModal" type="submit" value="Send Message" class="btn btn-mepm" style="width: 200px" />
+                        </div>
+                    </div>
+
                         <div class="col-md-6">
                             <div class="md-form mb-0">
-                                <input type="text" id="name" name="name" class="form-control">
-                                <label for="name" class="">Your name</label>
+                                <label for="sendersEmailAddress" class="">Message</label>
+                                @Html.EditorFor(m => m.HtmlContent, new { htmlAttributes = new { @class = "form-control", rows = 9 } })
+                                @Html.ValidationMessageFor(m => m.HtmlContent, "", new { @class = "text-danger" })
+
                             </div>
                         </div>
-                        <!--Grid column-->
-                        <!--Grid column-->
-                        <div class="col-md-6">
-                            <div class="md-form mb-0">
-                                <input type="text" id="sendersEmailAddress" name="sendersEmailAddress" class="form-control">
-                                <label for="sendersEmailAddress" class="">Your email</label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-
-                    </div>
-                    <!--Grid row-->
-                    <!--Grid row-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="md-form mb-0">
-                                <input type="text" id="subject" name="subject" class="form-control">
-                                <label for="subject" class="">Subject</label>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Grid row-->
-                    <!--Grid row-->
-                    <div class="row">
-
-                        <!--Grid column-->
-                        <div class="col-md-12">
-
-                            <div class="md-form">
-                                <textarea type="text" id="htmlText" name="htmlText" rows="2" class="form-control md-textarea"></textarea>
-                                <label for="htmlText">Your message</label>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!--Grid row-->
-
-                    <a class="btn btn-mepm" onclick="document.getElementById('contact-form').submit();">Send</a>
-                </form>
-
-                    
                    
-                    
-                    <div class="status"></div>
-            </div>
-            <!--Grid column-->
-            <!--Grid column-->
-            <div class="col-md-3 text-center">
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <i class="fas fa-map-marker-alt fa-2x"></i>
-                        <p><a href="https://www.google.com/maps/place/Mountain+Empire+Piping+%26+Mechanical/@@36.5600103,-82.208488,17z/data=!3m1!4b1!4m5!3m4!1s0x885077b15363dc41:0x2bc43fbe905cc5ea!8m2!3d36.560006!4d-82.2062993/" target="_blank"">1116 Bluff City Hwy, Bristol, TN</a></p>
+                    </div>
+                        <!--Grid column-->
+                        <!--Grid row-->
+                        <!--Grid row-->
+                        <!--Grid row-->
                         
-                    </li>
 
-                    <li>
-                        <i class="fas fa-phone mt-4 fa-2x"></i>
-                        <p>(423)-217-0592</p>
-                    </li>
+                        <!---->
+                        }
 
-                    <li>
-                        <i class="fas fa-envelope mt-4 fa-2x"></i>
-                        <p>contact@mepmllc.com</p>
-                    </li>
-                </ul>
-            </div>
-            <!--Grid column-->
 
-        </div>
+
+
+                        <div class="status"></div>
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-md-3 text-center">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <i class="fas fa-map-marker-alt fa-2x"></i>
+                                <p><a href="https://www.google.com/maps/place/Mountain+Empire+Piping+%26+Mechanical/@@36.5600103,-82.208488,17z/data=!3m1!4b1!4m5!3m4!1s0x885077b15363dc41:0x2bc43fbe905cc5ea!8m2!3d36.560006!4d-82.2062993/" target="_blank" ">1116 Bluff City Hwy, Bristol, TN</a></p>
+
+                            </li>
+
+                            <li>
+                                <i class="fas fa-phone mt-4 fa-2x"></i>
+                                <p>(423)-217-0592</p>
+                            </li>
+
+                            <li>
+                                <i class="fas fa-envelope mt-4 fa-2x"></i>
+                                <p>contact@mepmllc.com</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+
+                </div>
+
+
+
+
+   
+
 
     </section>
+
+
+
+
+    <div class="modal fade" tabindex="-1" id="SuccessModal"
+         data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-center pt-2 pb-1">
+                    <h5 class="modal-title w-100">Thank you</h5>
+                    <button type="button" class="close " data-dismiss="modal">
+                        <i class="fas fa-times pr-1" style="float:right;"></i>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h5 class="text-center">We will return your message as soon as possible</h5>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<div id="map"></div>
+
 </div>
 

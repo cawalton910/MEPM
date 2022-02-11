@@ -21,7 +21,7 @@ namespace MEPM
         {
             services.AddControllersWithViews();
             services.AddTransient<IEmail, Email>();
-            services.AddTransient<ITextMessage, TextMessage>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

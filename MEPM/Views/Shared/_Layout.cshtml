@@ -7,11 +7,12 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
     <script src="https://kit.fontawesome.com/c41790e5a3.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-   
+
     <div id="myDIV">
         <nav class="navbar navbar-expand-lg fixed-top shadow rounded" id="mainNav">
 
@@ -34,7 +35,7 @@
                         <li class="nav-item @Html.ActiveClass("Home", "Portfolio")">
                             <a class="nav-link" href="/Home/Portfolio">Portfolio</a>
                         </li>
-                        <li class="nav-item @Html.ActiveClass("Home", "Contact")">
+                        <li class="nav-item @Html.ActiveClass("Home", "Contact,Email")">
                             <a class="nav-link" href="/Home/Contact">Contact</a>
                         </li>
                     </ul>
@@ -51,14 +52,18 @@
 
     <footer class="border-top footer text-muted shadow">
         <div class="container">
-            
+
             &copy; 2021 - MEPM - <a class="" href="/Home/Privacy">Privacy</a>
         </div>
     </footer>
-
+    <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDet1JWuv7ESrZFqobr1vPj2nd92Ktjs4M&callback=initMap">
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
